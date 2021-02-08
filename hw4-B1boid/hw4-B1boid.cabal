@@ -1,0 +1,87 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.31.2.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: 5ae974635f8cf6a4b8f2056b83ac235408ecd7e4d22ce9becfe7865615ec11d2
+
+name:           hw4-B1boid
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/githubuser/hw4-B1boid#readme>
+homepage:       https://github.com/githubuser/hw4-B1boid#readme
+bug-reports:    https://github.com/githubuser/hw4-B1boid/issues
+author:         Vorobev Aleksandr
+maintainer:     example@example.com
+copyright:      2020 Vorobev Aleksandr
+build-type:     Simple
+
+
+library
+  exposed-modules:
+      Task1, Task2, Task3, Task4, Task5, Task6, Task7, Task8
+  other-modules:
+      Paths_hw4_B1boid
+  hs-source-dirs:
+      src
+  build-depends:
+      base >=4.7 && <5
+    , microlens
+    , filepath
+    , directory
+    , monad-par
+    , monad-par-extras
+    , stm
+    , extra
+    , monad-loops
+    , hashable
+    , array
+    , vector
+    , comonad
+    , random
+  default-language: Haskell2010
+
+executable hw4-B1boid-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_hw4_B1boid
+  hs-source-dirs:
+      app
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , hw4-B1boid
+  default-language: Haskell2010
+
+test-suite hw4-B1boid-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Task1Spec, Task4Spec, Task5Spec, Task6Spec, Task7Spec
+  hs-source-dirs:
+      test
+  ghc-options: -Wall -threaded -rtsopts -with-rtsopts=-N4
+  build-depends:
+      base >=4.7 && <5
+    , hw4-B1boid
+    , hspec
+    , async
+    , filepath
+    , microlens
+  default-language: Haskell2010
+
+benchmark hw4-B1boid-bench
+  type: exitcode-stdio-1.0
+  main-is: Main.hs
+  other-modules:
+      Task1Bench, Task3Bench
+  hs-source-dirs:
+      benchmark
+  ghc-options:  -Wall -threaded -rtsopts -with-rtsopts=-N4
+  build-depends:
+      base >=4.7 && <5
+    , hw4-B1boid
+    , criterion
+    , QuickCheck
+    , async
+  default-language: Haskell2010
